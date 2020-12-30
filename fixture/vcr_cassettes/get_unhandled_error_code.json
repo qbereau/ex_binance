@@ -2,24 +2,24 @@
   {
     "request": {
       "body": "",
-      "headers": {
-        "X-MBX-APIKEY": "***"
-      },
+      "headers": [],
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://api.binance.com/api/v1/time?"
+      "url": "https://testnet.binance.vision/api/v1/time?"
     },
     "response": {
       "binary": false,
-      "body": "{\"code\":-1101,\"msg\":\"Too many parameters; expected '0' and received '3'.\"}",
+      "body": "{\"serverTime\":1609341194717}",
       "headers": {
-        "Content-Type": "application/json;charset=utf-8",
-        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "28",
         "Connection": "keep-alive",
-        "Date": "Sat, 16 Mar 2019 23:39:28 GMT",
+        "Date": "Wed, 30 Dec 2020 15:13:14 GMT",
         "Server": "nginx",
-        "X-MBX-USED-WEIGHT": "1",
+        "x-mbx-uuid": "b9476291-ad6b-4db4-8587-f2d0c74c57d6",
+        "x-mbx-used-weight": "2",
+        "x-mbx-used-weight-1m": "2",
         "Strict-Transport-Security": "max-age=31536000; includeSubdomains",
         "X-Frame-Options": "SAMEORIGIN",
         "X-Xss-Protection": "1; mode=block",
@@ -30,11 +30,14 @@
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
-        "X-Cache": "Error from cloudfront",
-        "Via": "1.1 f7a323e97f4f771e04673a04f66f786d.cloudfront.net (CloudFront)",
-        "X-Amz-Cf-Id": "T9_8fveZHdxZRPO6uq0SSp-gDZMkK4etTpG_77fNRJXCml4MIujRqg=="
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 46546eb404789d29bf372f6a3fe43876.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "FRA56-C1",
+        "X-Amz-Cf-Id": "rmd9XQaomRkIpRCdNL2RWHHVONPv08FkKQ0AoXRtu7eInTfGAz8ykg=="
       },
-      "status_code": 400,
+      "status_code": 200,
       "type": "ok"
     }
   }

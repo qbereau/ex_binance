@@ -14,7 +14,7 @@ defmodule ExBinance.PublicTest do
 
   test ".server_time success return an ok, time tuple" do
     use_cassette "get_server_time_ok" do
-      assert ExBinance.Public.server_time() == {:ok, 1_521_781_361_467}
+      assert ExBinance.Public.server_time() == {:ok, 1_609_340_889_154}
     end
   end
 
@@ -25,45 +25,57 @@ defmodule ExBinance.PublicTest do
       assert info.server_time != nil
 
       assert info.rate_limits == [
-               %{"interval" => "MINUTE", "limit" => 1200, "rateLimitType" => "REQUESTS"},
-               %{"interval" => "SECOND", "limit" => 10, "rateLimitType" => "ORDERS"},
-               %{"interval" => "DAY", "limit" => 100_000, "rateLimitType" => "ORDERS"}
+               %{"interval" => "MINUTE", "limit" => 1200, "rateLimitType" => "REQUEST_WEIGHT", "intervalNum" => 1},
+               %{"interval" => "SECOND", "limit" => 100, "rateLimitType" => "ORDERS", "intervalNum" => 10},
+               %{"interval" => "DAY", "limit" => 200_000, "rateLimitType" => "ORDERS", "intervalNum" => 1}
              ]
 
       assert info.exchange_filters == []
       assert [symbol | _] = info.symbols
 
       assert symbol == %{
-               "baseAsset" => "ETH",
-               "baseAssetPrecision" => 8,
-               "filters" => [
-                 %{
-                   "filterType" => "PRICE_FILTER",
-                   "maxPrice" => "100000.00000000",
-                   "minPrice" => "0.00000100",
-                   "tickSize" => "0.00000100"
-                 },
-                 %{
-                   "filterType" => "LOT_SIZE",
-                   "maxQty" => "100000.00000000",
-                   "minQty" => "0.00100000",
-                   "stepSize" => "0.00100000"
-                 },
-                 %{"filterType" => "MIN_NOTIONAL", "minNotional" => "0.00100000"}
-               ],
-               "icebergAllowed" => false,
-               "orderTypes" => [
-                 "LIMIT",
-                 "LIMIT_MAKER",
-                 "MARKET",
-                 "STOP_LOSS_LIMIT",
-                 "TAKE_PROFIT_LIMIT"
-               ],
-               "quoteAsset" => "BTC",
-               "quotePrecision" => 8,
-               "status" => "TRADING",
-               "symbol" => "ETHBTC"
-             }
+        "baseAsset" => "BNB",
+        "baseAssetPrecision" => 8,
+        "filters" => [
+          %{
+            "filterType" => "PRICE_FILTER",
+            "maxPrice" => "10000.00000000",
+            "minPrice" => "0.00010000",
+            "tickSize" => "0.00010000"
+          },
+          %{
+            "filterType" => "PERCENT_PRICE",
+            "avgPriceMins" => 1,
+            "multiplierDown" => "0.2",
+            "multiplierUp" => "5"
+          },
+          %{
+            "filterType" => "LOT_SIZE",
+            "maxQty" => "9000.00000000",
+            "minQty" => "0.01000000",
+            "stepSize" => "0.01000000"
+          },
+          %{"applyToMarket" => true, "avgPriceMins" => 1, "filterType" => "MIN_NOTIONAL", "minNotional" => "10.00000000"},
+          %{"filterType" => "ICEBERG_PARTS", "limit" => 10},
+          %{"filterType" => "MARKET_LOT_SIZE", "maxQty" => "1000.00000000", "minQty" => "0.00000000", "stepSize" => "0.00000000"},
+          %{"filterType" => "MAX_NUM_ALGO_ORDERS", "maxNumAlgoOrders" => 5},
+          %{"filterType" => "MAX_NUM_ORDERS", "maxNumOrders" => 200}
+        ],
+        "icebergAllowed" => true,
+        "orderTypes" => ["LIMIT", "LIMIT_MAKER", "MARKET", "STOP_LOSS_LIMIT", "TAKE_PROFIT_LIMIT"],
+        "quoteAsset" => "BUSD",
+        "quotePrecision" => 8,
+        "status" => "TRADING",
+        "symbol" => "BNBBUSD",
+        "baseCommissionPrecision" => 8,
+        "isMarginTradingAllowed" => false,
+        "isSpotTradingAllowed" => true,
+        "ocoAllowed" => true,
+        "permissions" => ["SPOT"],
+        "quoteAssetPrecision" => 8,
+        "quoteCommissionPrecision" => 8,
+        "quoteOrderQtyMarketAllowed" => true
+      }
     end
   end
 
@@ -71,10 +83,10 @@ defmodule ExBinance.PublicTest do
     use_cassette "get_all_prices_ok" do
       assert {:ok, symbol_prices} = ExBinance.Public.all_prices()
 
-      assert [%ExBinance.SymbolPrice{price: "0.06137000", symbol: "ETHBTC"} | _tail] =
+      assert [%ExBinance.SymbolPrice{price: "31.65340000", symbol: "BNBBUSD"} | _tail] =
                symbol_prices
 
-      assert symbol_prices |> Enum.count() == 288
+      assert symbol_prices |> Enum.count() == 20
     end
   end
 
@@ -85,20 +97,15 @@ defmodule ExBinance.PublicTest do
                  :ok,
                  %ExBinance.OrderBook{
                    asks: [
-                     ["8400.00000000", "2.04078100", []],
-                     ["8405.35000000", "0.50354700", []],
-                     ["8406.00000000", "0.32769800", []],
-                     ["8406.33000000", "0.00239000", []],
-                     ["8406.51000000", "0.03241000", []]
                    ],
                    bids: [
-                     ["8393.00000000", "0.20453200", []],
-                     ["8392.57000000", "0.02639000", []],
-                     ["8392.00000000", "1.40893300", []],
-                     ["8390.09000000", "0.07047100", []],
-                     ["8388.72000000", "0.04577400", []]
+                    ["1055.00000000", "0.50000000"],
+                    ["1007.95000000", "0.10000000"],
+                    ["954.90000000", "0.10000000"],
+                    ["901.85000000", "0.10000000"],
+                    ["848.80000000", "0.10000000"]
                    ],
-                   last_update_id: 113_634_395
+                   last_update_id: 121072
                  }
                }
       end

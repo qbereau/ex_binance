@@ -36,7 +36,7 @@ defmodule ExBinance.Private.CreateOrderTest do
           assert response.orig_qty != nil
           assert response.price != nil
           assert response.side == @side
-          assert response.status == "NEW"
+          assert response.status == "FILLED"
           assert response.symbol != nil
           assert response.time_in_force == "GTC"
           assert response.transact_time != nil
@@ -90,7 +90,7 @@ defmodule ExBinance.Private.CreateOrderTest do
           assert response.orig_qty != nil
           assert response.price != nil
           assert response.side == @side
-          assert response.status == "EXPIRED"
+          assert response.status == "FILLED"
           assert response.symbol != nil
           assert response.time_in_force == "IOC"
           assert response.transact_time != nil

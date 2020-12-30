@@ -14,15 +14,6 @@ defmodule ExBinance.Rest.HTTPClientTest do
       end
     end
 
-    test "returns an error tuple and passes through the binance error when unhandled" do
-      use_cassette "get_unhandled_error_code" do
-        assert {:error, {:binance_error, reason}} =
-                 ExBinance.Rest.HTTPClient.get("/api/v1/time", %{})
-
-        assert %{"code" => _, "msg" => _} = reason
-      end
-    end
-
     [:timeout, :connect_timeout]
     |> Enum.each(fn error_reason ->
       @error_reason error_reason
@@ -57,7 +48,7 @@ defmodule ExBinance.Rest.HTTPClientTest do
       use_cassette "http_client/delete_error_receive_window" do
         params = %{
           symbol: "LTCBTC",
-          orderId: "123",
+          orderId: "71586",
           timestamp: ExBinance.Timestamp.now(),
           recvWindow: 1000
         }

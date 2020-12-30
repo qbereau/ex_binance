@@ -31,4 +31,6 @@ defmodule ExBinance.Private do
 
   defdelegate cancel_all_orders(symbol, credentials), to: ExBinance.Rest.CancelAllOrders
 
+  defdelegate query_order(symbol, order_id, credentials), to: ExBinance.Rest.QueryOrder
+
 end

@@ -6,17 +6,20 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://api.binance.com/api/v1/depth?symbol=IDONTEXIST&limit=1000"
+      "url": "https://testnet.binance.vision/api/v1/depth?limit=1000&symbol=IDONTEXIST"
     },
     "response": {
       "binary": false,
       "body": "{\"code\":-1121,\"msg\":\"Invalid symbol.\"}",
       "headers": {
-        "Date": "Fri, 23 Mar 2018 05:15:37 GMT",
-        "Content-Type": "application/json",
-        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "38",
         "Connection": "keep-alive",
+        "Date": "Wed, 30 Dec 2020 15:08:11 GMT",
         "Server": "nginx",
+        "x-mbx-uuid": "b9476291-ad6b-4db4-8587-f2d0c74c57d6",
+        "x-mbx-used-weight": "16",
+        "x-mbx-used-weight-1m": "16",
         "Strict-Transport-Security": "max-age=31536000; includeSubdomains",
         "X-Frame-Options": "SAMEORIGIN",
         "X-Xss-Protection": "1; mode=block",
@@ -26,7 +29,11 @@
         "X-WebKit-CSP": "default-src 'self'",
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "Pragma": "no-cache",
-        "Expires": "0"
+        "Expires": "0",
+        "X-Cache": "Error from cloudfront",
+        "Via": "1.1 e39402e2cf62b31f7774452c905f38f3.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "FRA56-C1",
+        "X-Amz-Cf-Id": "fse8yO7WA0CXlgDBoHw4-5Yk76RmPnBPTIsN3qnV34TIOYOxqZzKOg=="
       },
       "status_code": 400,
       "type": "ok"

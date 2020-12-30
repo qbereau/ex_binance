@@ -1,25 +1,30 @@
 [
   {
     "request": {
-      "body": "price=50000&quantity=0.001&recvWindow=1000&side=SELL&symbol=BTCUSDT&timeInForce=IOC&timestamp=1527291410866&type=LIMIT&signature=***",
+      "body": "price=0.01&quantity=0.1&recvWindow=1000&side=SELL&symbol=LTCBTC&timeInForce=IOC&timestamp=1609341597982&type=LIMIT&signature=***",
       "headers": {
         "X-MBX-APIKEY": "***"
       },
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "https://api.binance.com/api/v3/order"
+      "url": "https://testnet.binance.vision/api/v3/order"
     },
     "response": {
       "binary": false,
-      "body": "{\"symbol\":\"BTCUSDT\",\"orderId\":108279070,\"clientOrderId\":\"roSkLhwX9KCgYqr4yFPx1V\",\"transactTime\":1527291411088,\"price\":\"50000.00000000\",\"origQty\":\"0.00100000\",\"executedQty\":\"0.00000000\",\"status\":\"EXPIRED\",\"timeInForce\":\"IOC\",\"type\":\"LIMIT\",\"side\":\"SELL\"}",
+      "body": "{\"symbol\":\"LTCBTC\",\"orderId\":1420,\"orderListId\":-1,\"clientOrderId\":\"tXuSoSzzQmev5f2ldhfF5d\",\"transactTime\":1609341598826,\"price\":\"0.01000000\",\"origQty\":\"0.10000000\",\"executedQty\":\"0.00000000\",\"cummulativeQuoteQty\":\"0.00000000\",\"status\":\"EXPIRED\",\"timeInForce\":\"IOC\",\"type\":\"LIMIT\",\"side\":\"SELL\",\"fills\":[]}",
       "headers": {
-        "Content-Type": "application/json",
-        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "306",
         "Connection": "keep-alive",
-        "Date": "Fri, 25 May 2018 23:36:51 GMT",
+        "Date": "Wed, 30 Dec 2020 15:19:58 GMT",
         "Server": "nginx",
         "Vary": "Accept-Encoding",
+        "x-mbx-uuid": "b9476291-ad6b-4db4-8587-f2d0c74c57d6",
+        "x-mbx-used-weight": "10",
+        "x-mbx-used-weight-1m": "10",
+        "x-mbx-order-count-10s": "1",
+        "x-mbx-order-count-1d": "15",
         "Strict-Transport-Security": "max-age=31536000; includeSubdomains",
         "X-Frame-Options": "SAMEORIGIN",
         "X-Xss-Protection": "1; mode=block",
@@ -30,9 +35,12 @@
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
         "X-Cache": "Miss from cloudfront",
-        "Via": "1.1 51f2e50a0d2a5ee1d9c830bf417b2713.cloudfront.net (CloudFront)",
-        "X-Amz-Cf-Id": "BX8-X-VXYRrjfwPJ8H-Gx4sgVhcoBDZ7WlOiWn-u0SWuW2h0e5Rhpw=="
+        "Via": "1.1 5ab5e654a3dc7079aad7ac64ec697d82.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "FRA56-C1",
+        "X-Amz-Cf-Id": "3fX6YZQINcLXL_WSgm6MgOtsMLEWnMtOrZHQ-i9DdJ44ze8Gr_378w=="
       },
       "status_code": 200,
       "type": "ok"

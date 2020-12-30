@@ -6,18 +6,20 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://api.binance.com/api/v1/depth?symbol=BTCUSDT&limit=5"
+      "url": "https://testnet.binance.vision/api/v1/depth?limit=5&symbol=BTCUSDT"
     },
     "response": {
       "binary": false,
-      "body": "{\"lastUpdateId\":113634395,\"bids\":[[\"8393.00000000\",\"0.20453200\",[]],[\"8392.57000000\",\"0.02639000\",[]],[\"8392.00000000\",\"1.40893300\",[]],[\"8390.09000000\",\"0.07047100\",[]],[\"8388.72000000\",\"0.04577400\",[]]],\"asks\":[[\"8400.00000000\",\"2.04078100\",[]],[\"8405.35000000\",\"0.50354700\",[]],[\"8406.00000000\",\"0.32769800\",[]],[\"8406.33000000\",\"0.00239000\",[]],[\"8406.51000000\",\"0.03241000\",[]]]}",
+      "body": "{\"lastUpdateId\":121072,\"bids\":[[\"1055.00000000\",\"0.50000000\"],[\"1007.95000000\",\"0.10000000\"],[\"954.90000000\",\"0.10000000\"],[\"901.85000000\",\"0.10000000\"],[\"848.80000000\",\"0.10000000\"]],\"asks\":[]}",
       "headers": {
-        "Date": "Fri, 23 Mar 2018 05:38:26 GMT",
-        "Content-Type": "application/json",
-        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Content-Length": "194",
         "Connection": "keep-alive",
+        "Date": "Wed, 30 Dec 2020 15:08:08 GMT",
         "Server": "nginx",
-        "Vary": "Accept-Encoding",
+        "x-mbx-uuid": "b9476291-ad6b-4db4-8587-f2d0c74c57d6",
+        "x-mbx-used-weight": "4",
+        "x-mbx-used-weight-1m": "4",
         "Strict-Transport-Security": "max-age=31536000; includeSubdomains",
         "X-Frame-Options": "SAMEORIGIN",
         "X-Xss-Protection": "1; mode=block",
@@ -27,7 +29,13 @@
         "X-WebKit-CSP": "default-src 'self'",
         "Cache-Control": "no-cache, no-store, must-revalidate",
         "Pragma": "no-cache",
-        "Expires": "0"
+        "Expires": "0",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 e39402e2cf62b31f7774452c905f38f3.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "FRA56-C1",
+        "X-Amz-Cf-Id": "_2ceSfSkTGfOqnUG3-es27cnxwy_PnHkTJ9wpxH4yD20pl-wTJFbEQ=="
       },
       "status_code": 200,
       "type": "ok"
