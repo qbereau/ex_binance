@@ -12,7 +12,7 @@ defmodule ExBinance.Rest.HTTPClient do
           | :receive_window
           | {:binance_error, map}
 
-  @receive_window System.get_env("BINANCE_RECEIVE_WINDOW")
+  @receive_window (System.get_env("BINANCE_RECEIVE_WINDOW") || 5_000)
   @api_key_header "X-MBX-APIKEY"
 
   @spec get(path, map, [header]) :: {:ok, any} | {:error, shared_errors}
